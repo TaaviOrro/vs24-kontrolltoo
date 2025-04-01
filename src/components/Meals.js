@@ -35,6 +35,6 @@ const Meals = () => {
 
         </ul>
     )
-}
+};
 
 export default Meals
