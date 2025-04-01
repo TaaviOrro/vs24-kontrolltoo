@@ -5,6 +5,9 @@ import CartContext from '../store/CartContext'
 
 const Header = () => {
     const cartCtx = useContext(CartContext);
+
+    const totalQuantity = cartCtx.items.reduce((total, item) => total + item.quantity, 0)
+
     return (
         <header id="main-header">
             <div id="title">
@@ -13,7 +16,7 @@ const Header = () => {
             </div>
             <nav>
             <Button textOnly={true} onClick={() => console.log('Cart button clicked')}>
-                Cart ({cartCtx.items.length})
+                Cart ({totalQuantity})
 
             </Button>
             </nav>
