@@ -1,10 +1,10 @@
+import React, { useContext } from 'react'
 import logo from '../assets/logo.jpg'
 import Button from './UI/Button'
+import CartContext from '../store/CartContext'
 
 const Header = () => {
-    const handleClick = () => {
-        console.log('Cart button clicked');
-    }
+    const cartCtx = useContext(CartContext);
     return (
         <header id="main-header">
             <div id="title">
@@ -12,8 +12,8 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <Button textOnly={true} onClick={handleClick}>
-                Cart (0)
+            <Button textOnly={true} onClick={() => console.log('Cart button clicked')}>
+                Cart ({cartCtx.items.length})
 
             </Button>
             </nav>

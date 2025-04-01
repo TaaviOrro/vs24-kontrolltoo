@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import '../index.css'
 import Button from './UI/Button'
+import CartContext from '../store/CartContext'
 
-const MealItem = ({ name, description, price, image}) => {
-    console.log("image prop:", image)
+const MealItem = ({ id, name, description, price, image}) => {
+    const cartCtx = useContext(CartContext);
     const imagePath = require(`../assets/${image}`);
 
     const formattedPrice = new Intl.NumberFormat('de-DE', {
@@ -12,6 +13,7 @@ const MealItem = ({ name, description, price, image}) => {
     }).format(price);
 
     const handleAddToCart = () => {
+        cartCtx.addItem({ id, name, description, price, image});
         console.log(`${name} added to cart`);
     }
 
