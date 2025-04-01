@@ -1,14 +1,15 @@
 import React from "react";
+import '../../index.css';
 
-
-const Button = ({ textOnly, onClick, children}) => {
-    const buttonClass = textOnly ? 'text-button' : 'button';
-
-    return (
-        <button className={buttonClass} onClick={onClick}>
-            {children}
+const Button = ({ textOnly, onClick, children }) =>{ 
+ 
+    return ( 
+        <button
+          className={textOnly ? "text-button" : "button"} 
+           onClick={onClick}> 
+        {children}     
         </button>
     )
-}
+} 
 
 export default Button;

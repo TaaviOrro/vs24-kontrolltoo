@@ -3,8 +3,11 @@ import logo from '../assets/logo.jpg'
 import Button from './UI/Button'
 import CartContext from '../store/CartContext'
 
-const Header = () => {
+
+const Header = ({onOpenCart}) => {
     const cartCtx = useContext(CartContext);
+
+    console.log('Cart Items:', cartCtx.items)
 
     const totalQuantity = cartCtx.items.reduce((total, item) => total + item.quantity, 0)
 
@@ -15,7 +18,7 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <Button textOnly={true} onClick={() => console.log('Cart button clicked')}>
+            <Button textOnly={true} onClick={onOpenCart}>
                 Cart ({totalQuantity})
 
             </Button>
