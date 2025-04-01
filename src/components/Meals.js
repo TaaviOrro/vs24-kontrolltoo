@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import MealItem from './MealItem';
+
 
 
 const Meals = () => {
@@ -13,6 +15,7 @@ const Meals = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
+                console.log(data);
                 setMeals(data);
             } catch (error) {
                 setError(error);
@@ -27,11 +30,15 @@ const Meals = () => {
     }
     return (
         <ul id="meals">
-            { 
-                meals.map((meal, index) => (
-                    <li key={index}>{meal.name}</li>// list of meals
-                      ))
-                }
+            {meals.map((meal) => (
+                <MealItem
+                    key={meal.id}
+                    name={meal.name}
+                    description={meal.description}
+                    price={meal.price}
+                    image={meal.image}
+                    />
+              ))}
 
         </ul>
     )

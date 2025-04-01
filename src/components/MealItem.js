@@ -1,12 +1,18 @@
-const MealItem = (props) => {
+import React from 'react'
+import '../index.css'
+
+const MealItem = ({ name, description, price, image}) => {
+    console.log("image prop:", image)
+    const imagePath = require(`../assets/${image}`);
+
     return (
-        <li>
+        <li className='meal-item'>
             <article>
-                <img src={require(`../assets/${props.meal.image}`)} alt={props.meal.name}/>
+                <img src={imagePath} alt={name}/>
                 <div>
-                    <h3>{props.meal.name}</h3>
-                    <p>props.meal.price</p>
-                    <p>{props.meal.description}</p>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                    <p className="meal-price">{parseFloat(price).toFixed(2)}</p>
                 </div>
                 <p>
                     <button >Add to Cart</button>
