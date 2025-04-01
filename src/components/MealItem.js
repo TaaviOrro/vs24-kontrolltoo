@@ -1,5 +1,6 @@
 import React from 'react'
 import '../index.css'
+import Button from './UI/Button'
 
 const MealItem = ({ name, description, price, image}) => {
     console.log("image prop:", image)
@@ -9,6 +10,10 @@ const MealItem = ({ name, description, price, image}) => {
         style: 'currency',
         currency: 'EUR',
     }).format(price);
+
+    const handleAddToCart = () => {
+        console.log(`${name} added to cart`);
+    }
 
     return (
         <li className='meal-item'>
@@ -20,7 +25,9 @@ const MealItem = ({ name, description, price, image}) => {
                     <p className="meal-item-price">{formattedPrice}</p>
                 </div>
                 <p>
-                    <button >Add to Cart</button>
+                    <Button textOnly={false} onClick={handleAddToCart}>
+                        Add to Cart
+                        </Button>
                 </p>
             </article>
         </li>

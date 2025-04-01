@@ -1,6 +1,10 @@
 import logo from '../assets/logo.jpg'
+import Button from './UI/Button'
 
 const Header = () => {
+    const handleClick = () => {
+        console.log('Cart button clicked');
+    }
     return (
         <header id="main-header">
             <div id="title">
@@ -8,7 +12,10 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <button>Cart (0)</button>
+            <Button textOnly={true} onClick={handleClick}>
+                Cart (0)
+
+            </Button>
             </nav>
         </header>
     )
